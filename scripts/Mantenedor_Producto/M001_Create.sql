@@ -10,7 +10,7 @@ CREATE TABLE tab_ramos (
     descripcion_corta VARCHAR(20),
     fecha_registro DATE DEFAULT CURRENT_DATE,
     estado_registro VARCHAR(15) DEFAULT 'ACTIVO' CHECK (estado_registro IN ('ACTIVO', 'RESTRINGIDO', 'NO_ACTIVO')),
-    codigo_usuario VARCHAR(30) NOT NULL
+    codigo_usuario VARCHAR(30) NOT NULL -- Auditoría: Quién creó/modificó
 );
 
 -- 2. TABLA MANTENEDORA: PRODUCTOS
@@ -21,7 +21,7 @@ CREATE TABLE tab_productos (
     fecha_creacion DATE DEFAULT CURRENT_DATE,
     fecha_anulacion DATE,
     estado_registro VARCHAR(15) DEFAULT 'ACTIVO' CHECK (estado_registro IN ('ACTIVO', 'RESTRINGIDO', 'NO_ACTIVO')),
-    codigo_usuario VARCHAR(30) NOT NULL,
+    codigo_usuario VARCHAR(30) NOT NULL, -- Auditoría: Quién creó/modificó
     FOREIGN KEY (ramo_id) REFERENCES tab_ramos(ramo_id)
 );
 
@@ -36,7 +36,7 @@ CREATE TABLE tab_modul (
     fecha_anulacion DATE,
     fecha_registro DATE DEFAULT CURRENT_DATE,
     estado_registro VARCHAR(15) DEFAULT 'ACTIVO' CHECK (estado_registro IN ('ACTIVO', 'RESTRINGIDO', 'NO_ACTIVO')),
-    codigo_usuario VARCHAR(30) NOT NULL,
+    codigo_usuario VARCHAR(30) NOT NULL, -- Auditoría: Quién creó/modificó
     FOREIGN KEY (ramo_id) REFERENCES tab_ramos(ramo_id),
     FOREIGN KEY (producto_id) REFERENCES tab_productos(producto_id)
 );
