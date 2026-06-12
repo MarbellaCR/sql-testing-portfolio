@@ -30,7 +30,7 @@ CREATE TABLE tab_modul (
     modulo_id INT PRIMARY KEY,
     ramo_id INT NOT NULL, 
     producto_id INT NOT NULL,
-    nombre_modulo VARCHAR(100) NOT NULL,
+    nombre_modulo VARCHAR(100) NOT NULL, -- Ej: 'MÓDULO AMBULATORIO'
     descripcion_corta VARCHAR(20),
     fecha_creacion DATE DEFAULT CURRENT_DATE,
     fecha_anulacion DATE, Control de vigencia del módulo
