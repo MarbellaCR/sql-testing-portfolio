@@ -31,10 +31,10 @@ CREATE TABLE tab_modul (
     ramo_id INT NOT NULL, 
     producto_id INT NOT NULL,
     nombre_modulo VARCHAR(100) NOT NULL, -- Ej: 'MÓDULO AMBULATORIO'
-    descripcion_corta VARCHAR(20),
+    descripcion_corta VARCHAR(20), -- Ej: 'AMB' o 'MAT'
     fecha_creacion DATE DEFAULT CURRENT_DATE,
     fecha_anulacion DATE, Control de vigencia del módulo
-    fecha_registro DATE DEFAULT CURRENT_DATE,
+    fecha_registro DATE DEFAULT CURRENT_DATE,  -- Fecha del día
     estado_registro VARCHAR(15) DEFAULT 'ACTIVO' CHECK (estado_registro IN ('ACTIVO', 'RESTRINGIDO', 'NO_ACTIVO')),
     codigo_usuario VARCHAR(30) NOT NULL, -- Auditoría: Quién creó/modificó
     FOREIGN KEY (ramo_id) REFERENCES tab_ramos(ramo_id),
