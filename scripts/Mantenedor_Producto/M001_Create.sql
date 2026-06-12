@@ -19,7 +19,7 @@ CREATE TABLE tab_productos (
     ramo_id INT NOT NULL,
     nproducto VARCHAR(100) NOT NULL,
     fecha_creacion DATE DEFAULT CURRENT_DATE,
-    fecha_anulacion DATE,
+    fecha_anulacion DATE, Control de vigencia del producto en el mercado
     estado_registro VARCHAR(15) DEFAULT 'ACTIVO' CHECK (estado_registro IN ('ACTIVO', 'RESTRINGIDO', 'NO_ACTIVO')),
     codigo_usuario VARCHAR(30) NOT NULL, -- Auditoría: Quién creó/modificó
     FOREIGN KEY (ramo_id) REFERENCES tab_ramos(ramo_id)
@@ -33,7 +33,7 @@ CREATE TABLE tab_modul (
     nombre_modulo VARCHAR(100) NOT NULL,
     descripcion_corta VARCHAR(20),
     fecha_creacion DATE DEFAULT CURRENT_DATE,
-    fecha_anulacion DATE,
+    fecha_anulacion DATE, Control de vigencia del módulo
     fecha_registro DATE DEFAULT CURRENT_DATE,
     estado_registro VARCHAR(15) DEFAULT 'ACTIVO' CHECK (estado_registro IN ('ACTIVO', 'RESTRINGIDO', 'NO_ACTIVO')),
     codigo_usuario VARCHAR(30) NOT NULL, -- Auditoría: Quién creó/modificó
